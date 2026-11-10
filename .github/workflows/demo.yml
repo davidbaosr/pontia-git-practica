@@ -1,0 +1,20 @@
+name: Demo de GitHub Actions
+
+on:
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: Mensaje para imprimir
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir el mensaje
+        env:
+          MENSAJE: ${{ inputs.mensaje }}
+        run: echo "$MENSAJE"
